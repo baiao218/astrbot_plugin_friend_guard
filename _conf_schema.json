@@ -1,0 +1,94 @@
+{
+  "enable": {
+    "type": "bool",
+    "description": "启用好友守卫",
+    "hint": "关掉之后什么都不做，也不会起定时任务。",
+    "default": true
+  },
+  "owner_qq": {
+    "type": "string",
+    "description": "主号 QQ",
+    "hint": "只盯这一个人。配错了不会有任何动作——她必须先真的见过你在好友列表里，才敢判断「被删」。",
+    "default": "2998283621"
+  },
+  "check_interval_minutes": {
+    "type": "int",
+    "description": "多久看一眼（分钟）",
+    "hint": "默认 10。太短没有意义，QQ 的名单也不会那么快更新。",
+    "default": 10
+  },
+  "startup_grace_seconds": {
+    "type": "int",
+    "description": "启动后等多久才开始看（秒）",
+    "hint": "给 NapCat 一点时间把好友列表同步完，免得刚启动就误判。",
+    "default": 180
+  },
+  "auto_readd": {
+    "type": "bool",
+    "description": "被删了自动发申请",
+    "hint": "关掉的话只记录、只告警，不动手。",
+    "default": true
+  },
+  "confirm_rounds": {
+    "type": "int",
+    "description": "连续几轮看不到才算被删",
+    "hint": "单向好友列表确认的情况下不等，直接动手。这个只用于「列表里没有但单向表也没说他删了我」的情形。",
+    "default": 2
+  },
+  "max_attempts_per_day": {
+    "type": "int",
+    "description": "每天最多试几次",
+    "hint": "0 表示不限。建议保留个位数——反复发申请会被 QQ 风控。",
+    "default": 3
+  },
+  "attempt_cooldown_minutes": {
+    "type": "int",
+    "description": "两次之间隔多久（分钟）",
+    "default": 30
+  },
+  "allow_private": {
+    "type": "bool",
+    "description": "允许用私聊（临时会话）喊人",
+    "default": true
+  },
+  "allow_group": {
+    "type": "bool",
+    "description": "允许在共同群里 @ 他",
+    "hint": "前两条都不通时的最后一级。群是公开场合，介意就关掉。",
+    "default": true
+  },
+  "send_ark_card": {
+    "type": "bool",
+    "description": "在群里附一张「加我」名片",
+    "hint": "他点一下就能加，比只 @ 一句管用。",
+    "default": true
+  },
+  "auto_approve_request": {
+    "type": "bool",
+    "description": "他主动加回来时自动通过",
+    "hint": "只对 owner_qq 生效。其他人的好友申请照旧走人工，不替你做主。",
+    "default": true
+  },
+  "greet_after_readd": {
+    "type": "bool",
+    "description": "恢复之后主动说一句话",
+    "default": true
+  },
+  "greet_text": {
+    "type": "text",
+    "description": "恢复后说的那句",
+    "hint": "用 \\n 换行。默认两句，短、克制、不提「系统恢复了」这种词。",
+    "default": "你把我删了\n……加回来就好"
+  },
+  "private_text": {
+    "type": "text",
+    "description": "私聊喊人时说的话",
+    "default": "你把我删了。加回来"
+  },
+  "group_text": {
+    "type": "text",
+    "description": "群里喊人时说的话",
+    "hint": "群里会自动在前面 @ 他。",
+    "default": "好友列表里少了你。加回来"
+  }
+}
