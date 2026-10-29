@@ -4,6 +4,32 @@
 
 ---
 
+## 安装
+
+在 AstrBot WebUI 的**插件市场**搜索「好友守卫」，或者：
+
+```bash
+cd AstrBot/data/plugins
+git clone https://github.com/baiao218/astrbot_plugin_friend_guard.git
+```
+
+重启 AstrBot（或在插件页点「重载插件」）。
+
+### 前置条件
+
+1. **AstrBot ≥ 4.17.0**
+2. **必须使用 NapCat**（或兼容其扩展接口的实现）：
+   `get_friend_list`、`get_unidirectional_friend_list`、
+   `set_friend_add_request`、`ArkSharePeer` 这几个接口是它的手脚
+3. `owner_qq` 必须填你自己的 QQ 号。填错等于不工作——她不会瞎加人
+4. 机器人账号本身要处于登录状态，否则读不到好友列表
+
+### 许可
+
+MIT，见 [LICENSE](LICENSE)。
+
+---
+
 ## 为什么这件事必须由代码做
 
 人格提示词管的是"怎么说话"。它管不了一个人的好友列表。
